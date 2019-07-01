@@ -52,7 +52,7 @@ module.exports = "<nav class=\"navbar bg-primary\">\n    <ul class=\"nav nav-pil
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>home-page works!</p>\n"
+module.exports = "<app-post-list></app-post-list>"
 
 /***/ }),
 
@@ -64,6 +64,28 @@ module.exports = "<p>home-page works!</p>\n"
 /***/ (function(module, exports) {
 
 module.exports = "<p>not-found-page works!</p>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/posts/components/post-list-item/post-list-item.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/posts/components/post-list-item/post-list-item.component.html ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div\n    class=\"card m-3\"\n    style=\"width: 18rem;\"\n    appHighlight\n>\n    <img\n        *ngIf=\"post.images\"\n        class=\"card-img-top\"\n        [src]=\"post.images[0]\"\n        alt=\"Card image cap\"\n    >\n    <div class=\"card-body\">\n        <h5 class=\"card-title\">{{post.author.name}}</h5>\n        <p class=\"card-text\">\n            {{post.body}}\n        </p>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/posts/components/post-list/post-list.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/posts/components/post-list/post-list.component.html ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-post-list-item\n    *ngFor=\"let item of postList\"\n    [post]=\"item\"\n></app-post-list-item>\n"
 
 /***/ }),
 
@@ -128,6 +150,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_components_menu_menu_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/components/menu/menu.component */ "./src/app/core/components/menu/menu.component.ts");
 /* harmony import */ var _core_pages_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./core/pages/home-page/home-page.component */ "./src/app/core/pages/home-page/home-page.component.ts");
 /* harmony import */ var _core_pages_not_found_page_not_found_page_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./core/pages/not-found-page/not-found-page.component */ "./src/app/core/pages/not-found-page/not-found-page.component.ts");
+/* harmony import */ var _posts_posts_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./posts/posts.module */ "./src/app/posts/posts.module.ts");
+
 
 
 
@@ -144,11 +168,12 @@ CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _core_components_app_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
             _core_components_menu_menu_component__WEBPACK_IMPORTED_MODULE_5__["MenuComponent"],
             _core_pages_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_6__["HomePageComponent"],
-            _core_pages_not_found_page_not_found_page_component__WEBPACK_IMPORTED_MODULE_7__["NotFoundPageComponent"]
+            _core_pages_not_found_page_not_found_page_component__WEBPACK_IMPORTED_MODULE_7__["NotFoundPageComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _core_routing_module__WEBPACK_IMPORTED_MODULE_3__["CoreRoutingModule"]
+            _core_routing_module__WEBPACK_IMPORTED_MODULE_3__["CoreRoutingModule"],
+            _posts_posts_module__WEBPACK_IMPORTED_MODULE_8__["PostsModule"]
         ],
         providers: [],
         bootstrap: [_core_components_app_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -322,6 +347,227 @@ NotFoundPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [__webpack_require__(/*! ./not-found-page.component.scss */ "./src/app/core/pages/not-found-page/not-found-page.component.scss")]
     })
 ], NotFoundPageComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/posts/components/post-list-item/post-list-item.component.scss":
+/*!*******************************************************************************!*\
+  !*** ./src/app/posts/components/post-list-item/post-list-item.component.scss ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Bvc3RzL2NvbXBvbmVudHMvcG9zdC1saXN0LWl0ZW0vcG9zdC1saXN0LWl0ZW0uY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/posts/components/post-list-item/post-list-item.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/posts/components/post-list-item/post-list-item.component.ts ***!
+  \*****************************************************************************/
+/*! exports provided: PostListItemComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostListItemComponent", function() { return PostListItemComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let PostListItemComponent = class PostListItemComponent {
+    constructor() {
+        this.post = null;
+    }
+    ngOnInit() {
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], PostListItemComponent.prototype, "post", void 0);
+PostListItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-post-list-item',
+        template: __webpack_require__(/*! raw-loader!./post-list-item.component.html */ "./node_modules/raw-loader/index.js!./src/app/posts/components/post-list-item/post-list-item.component.html"),
+        styles: [__webpack_require__(/*! ./post-list-item.component.scss */ "./src/app/posts/components/post-list-item/post-list-item.component.scss")]
+    })
+], PostListItemComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/posts/components/post-list/post-list.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/posts/components/post-list/post-list.component.scss ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Bvc3RzL2NvbXBvbmVudHMvcG9zdC1saXN0L3Bvc3QtbGlzdC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/posts/components/post-list/post-list.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/posts/components/post-list/post-list.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: PostListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostListComponent", function() { return PostListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let PostListComponent = class PostListComponent {
+    constructor() {
+        this.postList = [
+            { id: '123', body: 'Mam fajnego psa', author: {
+                    name: 'Ola'
+                } },
+            { id: '124', body: 'Mam fajnego kota', author: {
+                    name: 'Ala'
+                } },
+            { id: '125', body: 'Zjadlem pizze', author: {
+                    name: 'Adam'
+                } }
+        ];
+    }
+    ngOnInit() {
+    }
+};
+PostListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-post-list',
+        template: __webpack_require__(/*! raw-loader!./post-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/posts/components/post-list/post-list.component.html"),
+        styles: [__webpack_require__(/*! ./post-list.component.scss */ "./src/app/posts/components/post-list/post-list.component.scss")]
+    })
+], PostListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/posts/posts.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/posts/posts.module.ts ***!
+  \***************************************/
+/*! exports provided: PostsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostsModule", function() { return PostsModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _components_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/post-list/post-list.component */ "./src/app/posts/components/post-list/post-list.component.ts");
+/* harmony import */ var _components_post_list_item_post_list_item_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/post-list-item/post-list-item.component */ "./src/app/posts/components/post-list-item/post-list-item.component.ts");
+/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
+
+
+
+
+
+
+let PostsModule = class PostsModule {
+};
+PostsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_components_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_3__["PostListComponent"], _components_post_list_item_post_list_item_component__WEBPACK_IMPORTED_MODULE_4__["PostListItemComponent"]],
+        exports: [_components_post_list_post_list_component__WEBPACK_IMPORTED_MODULE_3__["PostListComponent"], _components_post_list_item_post_list_item_component__WEBPACK_IMPORTED_MODULE_4__["PostListItemComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })
+], PostsModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/directives/highlight.directive.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/shared/directives/highlight.directive.ts ***!
+  \**********************************************************/
+/*! exports provided: HighlightDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HighlightDirective", function() { return HighlightDirective; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let HighlightDirective = class HighlightDirective {
+    constructor(el, renderer) {
+        this.el = el;
+        this.renderer = renderer;
+    }
+    onMouseOverHandler() {
+        //this.el.nativeElement.classList.add('border');
+        //this.el.nativeElement.classList.add('border-primary');
+        this.renderer.addClass(this.el.nativeElement, 'border');
+        this.renderer.addClass(this.el.nativeElement, 'border-primary');
+    }
+    onMouseLeaveHandler() {
+        this.renderer.removeClass(this.el.nativeElement, 'border');
+        this.renderer.removeClass(this.el.nativeElement, 'border-primary');
+    }
+};
+HighlightDirective.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('mouseover')
+], HighlightDirective.prototype, "onMouseOverHandler", null);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('mouseleave')
+], HighlightDirective.prototype, "onMouseLeaveHandler", null);
+HighlightDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[appHighlight]'
+    })
+], HighlightDirective);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/shared.module.ts":
+/*!*****************************************!*\
+  !*** ./src/app/shared/shared.module.ts ***!
+  \*****************************************/
+/*! exports provided: SharedModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedModule", function() { return SharedModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _directives_highlight_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./directives/highlight.directive */ "./src/app/shared/directives/highlight.directive.ts");
+
+
+
+
+let SharedModule = class SharedModule {
+};
+SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_directives_highlight_directive__WEBPACK_IMPORTED_MODULE_3__["HighlightDirective"]],
+        exports: [_directives_highlight_directive__WEBPACK_IMPORTED_MODULE_3__["HighlightDirective"]],
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
+        ]
+    })
+], SharedModule);
 
 
 
