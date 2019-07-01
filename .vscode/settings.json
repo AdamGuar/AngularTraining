@@ -1,0 +1,22 @@
+{
+    "breadcrumbs.enabled": false,
+    "cSpell.language": "en,pl",
+    "cSpell.userWords": [
+        "piecioshka",
+        "warsawjs"
+    ],
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
+    "explorer.openEditors.visible": 0,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 500,
+    "javascript.implicitProjectConfig.checkJs": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.tree.indent": 20,
+    "[html]": {
+        "editor.defaultFormatter": "stringham.angular-template-formatter"
+    }
+}
