@@ -6,17 +6,19 @@ import { AppComponent } from './core/components/app/app.component';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { HomePageComponent } from './core/pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './core/pages/not-found-page/not-found-page.component';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    PostsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
