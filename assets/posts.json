@@ -1,0 +1,23 @@
+[
+  {
+    "id": "123",
+    "body": "Mam fajnego psa",
+    "author": {
+      "name": "Ola"
+    }
+  },
+  {
+    "id": "124",
+    "body": "Mam fajnego kota",
+    "author": {
+      "name": "Ala"
+    }
+  },
+  {
+    "id": "125",
+    "body": "Zjadlem pizze",
+    "author": {
+      "name": "Adam"
+    }
+  }
+]
