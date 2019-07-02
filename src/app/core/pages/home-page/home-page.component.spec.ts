@@ -4,6 +4,7 @@ import { HomePageComponent } from './home-page.component';
 import { PostListComponent } from 'src/app/posts/components/post-list/post-list.component';
 import { PostListItemComponent } from 'src/app/posts/components/post-list-item/post-list-item.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PostsModule } from 'src/app/posts/posts.module';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -12,8 +13,8 @@ describe('HomePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePageComponent,PostListComponent, PostListItemComponent ],
-      imports: [HttpClientTestingModule]
+      declarations: [ HomePageComponent],
+      imports: [PostsModule]
     })
     .compileComponents();
   }));

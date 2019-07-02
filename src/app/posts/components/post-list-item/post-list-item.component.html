@@ -3,6 +3,11 @@
     style="width: 18rem;"
     appHighlight
 >
+    <div class="card-header">
+        <h5 class="card-title">{{post.author.name}}</h5>
+        <small>{{post.created_time | myDate}}</small>
+    </div>
+
     <img
         *ngIf="post.images"
         class="card-img-top"
@@ -10,9 +15,6 @@
         alt="Card image cap"
     >
     <div class="card-body">
-        <h5 class="card-title">{{post.author.name}}</h5>
-        <p class="card-text">
-            {{post.body}}
-        </p>
+        <p class="card-text">{{post.body}}</p>
     </div>
 </div>
