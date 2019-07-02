@@ -4,6 +4,7 @@ import { NotFoundPageComponent } from './not-found-page.component';
 
 describe('NotFoundPageComponent', () => {
   let component: NotFoundPageComponent;
+  let $component : any;
   let fixture: ComponentFixture<NotFoundPageComponent>;
 
   beforeEach(async(() => {
@@ -16,8 +17,13 @@ describe('NotFoundPageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NotFoundPageComponent);
     component = fixture.componentInstance;
+    $component = fixture.nativeElement;
     fixture.detectChanges();
   });
+
+  afterEach(()=>{
+    $component.remove();
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();

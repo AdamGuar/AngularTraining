@@ -6,6 +6,7 @@ import { PostListItemComponent } from 'src/app/posts/components/post-list-item/p
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
+  let $component: any;
   let fixture: ComponentFixture<HomePageComponent>;
 
   beforeEach(async(() => {
@@ -18,8 +19,13 @@ describe('HomePageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
+    $component = fixture.nativeElement;
     fixture.detectChanges();
   });
+
+  afterEach(()=>{
+    $component.remove();
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();

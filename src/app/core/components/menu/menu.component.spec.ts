@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
+  let $component : any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -17,8 +18,13 @@ describe('MenuComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuComponent);
-    component = fixture.componentInstance;
+    component = fixture.componentInstance; //instancja klasy
+    $component = fixture.nativeElement; //instacja elementu w DOM
     fixture.detectChanges();
+  });
+
+  afterEach(()=>{
+    $component.remove();
   });
 
   it('should create', () => {
