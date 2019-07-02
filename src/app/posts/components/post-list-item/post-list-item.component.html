@@ -5,7 +5,9 @@
 >
     <div class="card-header">
         <h5 class="card-title">{{post.author.name}}</h5>
-        <small>{{post.created_time | myDate}}</small>
+        <a routerLink="/posts/{{post.id}}">
+            {{post.created_time | myDate}}
+        </a>
     </div>
 
     <img
@@ -16,5 +18,9 @@
     >
     <div class="card-body">
         <p class="card-text">{{post.body}}</p>
+    </div>
+    <div class="card-footer>">
+        <app-comment-list [comments]="post.comments"></app-comment-list>
+        <app-comment-add-form></app-comment-add-form>
     </div>
 </div>

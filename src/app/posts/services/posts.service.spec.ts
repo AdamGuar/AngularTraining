@@ -44,4 +44,26 @@ describe("PostsService", () => {
       expect(posts.length).toEqual(1);
     });
   });
+
+  describe("getPostByID; ", () => {
+    it("should be defined", () => {
+      expect(service.getPostsById).toEqual(jasmine.any(Function));
+    });
+
+    it("should make http request", async () => {
+      const response = service.getPostsById('fake-id');
+      const server = httpMock.expectOne(environment.postsUrl);
+
+      server.flush(
+        { posts: [
+            { id: "fake-id", body: "fake-body" }
+          ]
+        }
+      );
+
+      const post = await response;
+      expect(post.id).toEqual('fake-id');
+    });
+  });
+
 });
