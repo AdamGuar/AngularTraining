@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --disable-host-check",
     "build": "ng build --base-href=/AngularTraining/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "predeploy": "ng build --base-href=/AngularTraining/",
+    "predeploy": "ng build --prod --base-href=/AngularTraining/",
     "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -d dist/facebook",
     "postdeploy": "echo Application was successfully deploy to Github Pages"
   },
