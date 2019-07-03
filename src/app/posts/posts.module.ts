@@ -7,10 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostProfilePageComponent } from './pages/post-profile-page/post-profile-page.component';
 import { PostsRoutingModule } from './posts-routing.module';
 import { CommentsModule } from '../comments/comments.module';
+import { PostAddFormComponent } from './components/post-add-form/post-add-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [PostListComponent, PostListItemComponent, PostProfilePageComponent],
-  exports: [PostListComponent, PostListItemComponent],
-  imports: [CommonModule,SharedModule,HttpClientModule, PostsRoutingModule,CommentsModule]
+  declarations: [PostListComponent, PostListItemComponent, PostProfilePageComponent, PostAddFormComponent],
+  exports: [PostListComponent, PostListItemComponent,PostAddFormComponent],
+  imports: [CommonModule,SharedModule,HttpClientModule, PostsRoutingModule,CommentsModule,FormsModule,ReactiveFormsModule]
 })
 export class PostsModule {}

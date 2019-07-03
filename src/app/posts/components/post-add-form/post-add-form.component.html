@@ -1,0 +1,6 @@
+<form [formGroup]="addForm" (submit)="onSubmit()">
+    <div class="form-group">
+        <textarea name="body" formControlName="body" class="form-control" [class.is-invalid]="body.invalid && body.dirty" rows="5" placeholder="What's up?"></textarea>
+    </div>
+    <button class="btn btn-primary" [disabled] = "addForm.invalid">Add post</button>
+</form>
