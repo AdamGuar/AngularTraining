@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { IUserCredentials } from '../interfaces/user-credentials.interface';
 import { IUserList } from '../interfaces/user-list.interface';
 import { BehaviorSubject } from 'rxjs';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,11 @@ export class UsersService {
   $user = new BehaviorSubject(null);
 
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private storage: StorageService
+  ) {
+    this.restore();
+  }
 
   register(user: IUser){
     return this.http.post(environment.usersUrl,user).toPromise();
@@ -34,10 +38,20 @@ export class UsersService {
 
   auth(authResponse){
     this.$user.next(authResponse);
+    this.storage.create('user',authResponse)
   }
 
   logout(){
     this.$user.next(null);
+    this.storage.delete('user');
+  }
+
+  restore(){
+    const user = this.storage.read('user');
+    if(!user){
+      return;
+    }
+    this.$user.next(user);
   }
 
 }
