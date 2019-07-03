@@ -31,6 +31,7 @@ export class LoginPageComponent implements OnInit {
     try {
       const authResponse = await this.userService.login(this.user);
       if(authResponse.status){
+        this.userService.auth(authResponse);
         this.router.navigate(['users','profile'])
       }else{
         this.loginSuccess = false;

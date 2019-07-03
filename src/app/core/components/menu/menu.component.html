@@ -10,7 +10,7 @@
                 Main page
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!loggedUser">
             <a
                 class="nav-link text-white"
                 routerLink="/users/register"
@@ -19,7 +19,7 @@
                 Register
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!loggedUser">
             <a
                 class="nav-link text-white"
                 routerLink="/users/login"
@@ -27,6 +27,24 @@
             >
                 Login
             </a>
+        </li>
+        <li class="nav-item" *ngIf="loggedUser">
+                <a
+                    class="nav-link text-white"
+                    routerLink="/users/profile"
+                    routerLinkActive="bg-danger"
+                >
+                    Profile
+                </a>
+        </li>
+        <li class="nav-item" *ngIf="loggedUser">
+                <a
+                    class="nav-link text-white"
+                    routerLink="/users/logout"
+                    routerLinkActive="bg-danger"
+                >
+                    Logout
+                </a>
         </li>
     </ul>
 </nav>
