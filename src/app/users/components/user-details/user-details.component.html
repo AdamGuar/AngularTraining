@@ -1,0 +1,20 @@
+<app-user-menu></app-user-menu>
+<div
+    class="card"
+    *ngIf="user"
+>
+    <img
+        class="card-img-top"
+        [src]="user.avatar_url"
+        alt="Card image cap"
+    >
+    <div class="card-body">
+        <h5 class="card-title">{{user.name}}</h5>
+        <a
+            routerLink='/users/remove'
+            class="btn btn-danger text-white"
+        >
+            Delete account
+        </a>
+    </div>
+</div>
