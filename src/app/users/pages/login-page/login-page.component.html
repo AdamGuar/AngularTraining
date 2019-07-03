@@ -13,18 +13,24 @@
         <input
             type="text"
             class="form-control"
+            [class.is-invalid]="email.invalid && email.dirty"
+            required
             [(ngModel)]="user.email"
             name="email"
+            #email="ngModel"
             placeholder="email"
         >
         <div class="form-group"></div>
         <input
             type="text"
             class="form-control"
+            [class.is-invalid]="password.invalid && password.dirty"
+            required
             [(ngModel)]="user.password"
             name="password"
+            #password="ngModel"
             placeholder="password"
         >
     </div>
-    <button class="btn btn-primary">Login</button>
+    <button class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
 </form>

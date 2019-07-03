@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsersService } from "../../services/users.service";
 
 @Component({
@@ -8,11 +8,11 @@ import { UsersService } from "../../services/users.service";
   styleUrls: ["./register-page.component.scss"]
 })
 export class RegisterPageComponent implements OnInit {
-  name = new FormControl();
-  email = new FormControl();
-  password = new FormControl();
-  confirmPassword = new FormControl();
-  avatarUrl = new FormControl();
+  name = new FormControl('',[Validators.required]);
+  email = new FormControl('',[Validators.required]);
+  password = new FormControl('',[Validators.required]);
+  confirmPassword = new FormControl('',[Validators.required]);
+  avatarUrl = new FormControl('',[Validators.required]);
 
   registerForm = new FormGroup({
     name: this.name,
@@ -40,7 +40,7 @@ export class RegisterPageComponent implements OnInit {
       await this.usersService.register(form);
       this.registrationSuccess = true;
     } catch (err) {
-      this.registrationError = JSON.stringify(err);
+      this.registrationError = err.message;
     } finally{
       this.registrationLoading = false;
     }
