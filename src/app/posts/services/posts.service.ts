@@ -27,4 +27,9 @@ export class PostsService {
     console.log('Adding post from service');
     return this.http.post(environment.postsUrl,post).toPromise();
   }
+
+  savePost(post: IPost): any {
+    const url = `${environment.postsUrl}/${post.id}`;
+    return this.http.put(url,post).toPromise();
+  }
 }

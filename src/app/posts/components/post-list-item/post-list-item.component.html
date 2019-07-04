@@ -17,7 +17,7 @@
     <img
         *ngIf="post.images"
         class="card-img-top"
-        [src]="post.images[0]"
+        src="{{post.images[0]}}"
         alt="Card image cap"
     >
     <div class="card-body">
@@ -25,6 +25,7 @@
     </div>
     <div class="card-footer>">
         <app-comment-list [comments]="post.comments"></app-comment-list>
-        <app-comment-add-form></app-comment-add-form>
+        <app-comment-add-form (addComment)="onAddComment($event)">
+        </app-comment-add-form>
     </div>
 </div>
