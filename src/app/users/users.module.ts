@@ -12,6 +12,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserPostListComponent } from './components/user-post-list/user-post-list.component';
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { PostsModule } from '../posts/posts.module';
+import { UserRemovePageComponent } from './pages/user-remove-page/user-remove-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PostsModule } from '../posts/posts.module';
     LogoutPageComponent,
     UserDetailsComponent,
     UserPostListComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    UserRemovePageComponent
   ],
   imports: [
     CommonModule,

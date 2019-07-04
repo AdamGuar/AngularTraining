@@ -10,7 +10,7 @@
     >
     <div class="card-body">
         <h5 class="card-title">{{user.name}}</h5>
-        <a
+        <a *ngIf="displayDelete"
             routerLink='/users/remove'
             class="btn btn-danger text-white"
         >

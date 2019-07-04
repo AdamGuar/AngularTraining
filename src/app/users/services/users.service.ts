@@ -25,6 +25,11 @@ export class UsersService {
     return this.http.post(environment.usersUrl,user).toPromise();
   }
 
+  getUserById(userId){
+    const url = `${environment.usersUrl}/${userId}`
+    return this.http.get<IUser>(url).toPromise();
+  }
+
   async login(credentials: IUserCredentials){
     const users = await this.http.get<IUserList>(environment.usersUrl).toPromise();
     const authUser = users.find((user)=>{
@@ -56,6 +61,13 @@ export class UsersService {
 
   getUser(){
     return this.$user.getValue();
+  }
+
+  destroyUser(){
+    const user = this.getUser();
+    this.logout();
+    const url = `${environment.usersUrl}/${user.id}`;
+    return this.http.delete(url).toPromise();
   }
 
 }
