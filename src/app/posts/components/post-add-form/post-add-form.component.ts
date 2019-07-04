@@ -1,7 +1,15 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ElementRef,
+  Renderer,
+  Renderer2
+} from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { IPost } from "../../interfaces/post.interface";
-import  uuid  from "node_modules/uuid";
+import uuid from "node_modules/uuid";
 import { UsersService } from "src/app/users/services/users.service";
 
 @Component({
@@ -28,9 +36,27 @@ export class PostAddFormComponent implements OnInit {
     body: this.body
   });
 
-  constructor(private userService: UsersService) {}
+  constructor(
+    private userService: UsersService,
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.$user.subscribe({
+      next: (value) => {
+        const $el = this.el.nativeElement;
+        const isUserLogged = (value !== null) && value.status;
+        if(isUserLogged) {
+          this.renderer.removeClass($el, "hide");
+          return;
+        }
+        this.renderer.addClass($el, "hide");
+      },
+      error: (err) => {console.warn('Problem occured with user stream',err)},
+      complete: () => {console.warn('User stream closed')}
+    });
+  }
 
   onSubmit() {
     const form = this.addForm.getRawValue();

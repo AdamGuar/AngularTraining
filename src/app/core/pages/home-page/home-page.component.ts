@@ -11,7 +11,7 @@ import { IPost } from 'src/app/posts/interfaces/post.interface';
 export class HomePageComponent implements OnInit {
   posts: IPostList = null;
 
-  constructor(private postService: PostsService) { }
+  constructor(private postService: PostsService,) { }
 
   ngOnInit() {
     //console.log('ngOnInit');
@@ -22,11 +22,6 @@ export class HomePageComponent implements OnInit {
     //console.log('ngOnDestroy');
   }
 
-  async onAddPost(post: IPost){
-    console.log('onAddPost');
-    this.posts.unshift(post);
-    await this.postService.addPost(post);
-  }
 
   async setupPosts(){
     this.posts = await this.postService.getPosts();
