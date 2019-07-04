@@ -10,6 +10,8 @@ import { UsersService } from "../../services/users.service";
 export class UserRemovePageComponent implements OnInit {
   constructor(private router: Router, private userService: UsersService) {}
 
+  error = null;
+
   ngOnInit() {}
 
   onDismiss() {
@@ -24,6 +26,7 @@ export class UserRemovePageComponent implements OnInit {
       this.router.navigateByUrl("/");
     } catch (err) {
       console.warn(err);
+      this.error = err.message;
     }
   }
 }

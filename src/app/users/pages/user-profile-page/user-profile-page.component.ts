@@ -10,6 +10,7 @@ import { IUser } from "../../interfaces/user.interface";
 })
 export class UserProfilePageComponent implements OnInit {
   user: IUser = null;
+  error = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,7 @@ export class UserProfilePageComponent implements OnInit {
       if(err && err.status === 404){
         this.router.navigate(['/404']);
       }
+      this.error = err.message;
     }
   }
 }

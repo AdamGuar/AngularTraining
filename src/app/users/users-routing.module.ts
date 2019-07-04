@@ -32,17 +32,17 @@ const routes: Routes = [
       {
         path: "posts",
         component: UserPostListComponent
-      }
+      },
+      {
+        path: "remove",
+        component: UserRemovePageComponent
+      },
     ],
     canActivate: [OnlyForAuthUserGuard]
   },
   {
     path: "logout",
     component: LogoutPageComponent
-  },
-  {
-    path: "remove",
-    component: UserRemovePageComponent
   },
   {
     path: ":userId",

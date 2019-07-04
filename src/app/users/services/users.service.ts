@@ -4,8 +4,9 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { IUserCredentials } from '../interfaces/user-credentials.interface';
 import { IUserList } from '../interfaces/user-list.interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 import { StorageService } from 'src/app/shared/services/storage.service';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -65,9 +66,13 @@ export class UsersService {
 
   destroyUser(){
     const user = this.getUser();
-    this.logout();
     const url = `${environment.usersUrl}/${user.id}`;
-    return this.http.delete(url).toPromise();
+    return this.http.delete(url).pipe(catchError(value=>{
+      return throwError(value);
+    }),tap(value=>{
+      this.logout();
+    })
+    ).toPromise();
   }
 
 }

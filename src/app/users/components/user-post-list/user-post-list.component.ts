@@ -11,16 +11,21 @@ import { PostsService } from 'src/app/posts/services/posts.service';
 export class UserPostListComponent implements OnInit {
 
   userPosts: IPostList = null;
+  error = null;
 
   constructor(private usersService : UsersService,
               private postService: PostsService) { }
 
   async ngOnInit() {
+    try{
     const posts = await this.postService.getPosts();
     const user = await this.usersService.getUser();
     this.userPosts = posts.filter((post)=>{
       return post.author.id === user.id;
     });
+    }catch(err){
+      this.error = err.message;
+    }
   }
 
 }

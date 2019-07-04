@@ -1,2 +1,4 @@
-<app-user-details [user] = "user">
-</app-user-details>
+<app-error-message [error]="error"></app-error-message>
+<ng-container *ngIf="!error">
+    <app-user-details [user]="user"></app-user-details>
+</ng-container>

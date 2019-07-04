@@ -1,9 +1,8 @@
 <h2>Register</h2>
 
 <app-loader *ngIf="registrationLoading"></app-loader>
-<p class="alert alert-danger" *ngIf="registrationError">
-    {{registrationError}}
-</p>
+<app-error-message [error]="registrationError"></app-error-message>
+
 <p class="alert alert-success" *ngIf="registrationSuccess">
         Registration completed successfully
     </p>

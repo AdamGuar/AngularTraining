@@ -4,13 +4,15 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { MyDatePipe } from './pipes/my-date.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
 import { StorageService } from './services/storage.service';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
-  declarations: [HighlightDirective, MyDatePipe, LoaderComponent],
+  declarations: [HighlightDirective, MyDatePipe, LoaderComponent, ErrorMessageComponent],
   exports: [
     HighlightDirective,
     MyDatePipe,
-    LoaderComponent
+    LoaderComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule

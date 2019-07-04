@@ -1,9 +1,9 @@
 <h2>Welcome back</h2>
 
 <app-loader *ngIf="loginLoading"></app-loader>
-<p class="alert alert-danger" *ngIf="loginError">
-    {{loginError}}
-</p>
+<app-error-message [error]="loginError"></app-error-message>
+
+
 <p class="alert alert-success" *ngIf="loginSuccess">
     Logged in
 </p>

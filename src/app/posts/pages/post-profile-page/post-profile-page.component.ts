@@ -11,6 +11,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class PostProfilePageComponent implements OnInit {
   post: IPost = null;
+  error = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +25,12 @@ export class PostProfilePageComponent implements OnInit {
   async setupPost(){
     const postId = this.route.snapshot.params.postId;
     console.log(postId);
+    try{
     const post = await this.postService.getPostsById(postId);
     this.post = post;
+    }catch(err){
+      this.error = err.message;
+    }
   }
 
 }
