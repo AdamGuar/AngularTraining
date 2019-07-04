@@ -24,6 +24,7 @@ export class PostsService {
   }
 
   addPost(post: IPost): any {
+    console.log('Adding post from service');
     return this.http.post(environment.postsUrl,post).toPromise();
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { IPost } from "../../interfaces/post.interface";
-import { uuid } from "node_modules/uuid";
+import  uuid  from "node_modules/uuid";
 import { UsersService } from "src/app/users/services/users.service";
 
 @Component({
