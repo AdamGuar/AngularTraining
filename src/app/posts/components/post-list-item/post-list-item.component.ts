@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { IComment } from 'src/app/comments/interfaces/comment';
 import { PostsService } from '../../services/posts.service';
+import { IPost } from '../../interfaces/post.interface';
 
 @Component({
   selector: "app-post-list-item",
@@ -9,6 +10,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class PostListItemComponent implements OnInit {
   @Input() post = null;
+  @Output() removePost = new EventEmitter();
 
   constructor(private postService : PostsService) {}
 
@@ -16,6 +18,10 @@ export class PostListItemComponent implements OnInit {
 
   ngOnChanges() {
     if (!this.post.comments) this.post.comments = [];
+  }
+
+  async onRemovePost(post: IPost){
+    this.removePost.next(this.post);
   }
 
   async onAddComment(comment: IComment){

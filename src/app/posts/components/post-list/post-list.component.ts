@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IPost } from '../../interfaces/post.interface';
 
 @Component({
   selector: 'app-post-list',
@@ -8,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostListComponent implements OnInit {
 
   @Input() posts = null;
+  @Output() removePost = new EventEmitter();
 
   constructor() { }
 
@@ -25,4 +27,9 @@ export class PostListComponent implements OnInit {
       else return 0;
     });
   }
+
+  onRemovePost(post: IPost){
+    this.removePost.next(post);
+  }
+
 }

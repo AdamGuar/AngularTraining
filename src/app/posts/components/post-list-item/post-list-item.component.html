@@ -10,11 +10,14 @@
                 alt
             >
         </a>
-        <div>
+        <div class="flex-fill">
             <h5 class="card-title">
                 <a routerLink="/users/{{post.author.id}}">{{post.author.name}}</a>
             </h5>
             <a routerLink="/posts/{{post.id}}">{{post.created_time | myDate}}</a>
+        </div>
+        <div>
+            <button class="btn btn-danger" (click)="onRemovePost($event)">&times;</button>
         </div>
     </div>
 

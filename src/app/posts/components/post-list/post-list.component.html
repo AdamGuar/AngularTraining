@@ -1,4 +1,5 @@
 <app-post-list-item
     *ngFor="let item of posts"
     [post]="item"
+    (removePost)="onRemovePost($event)"
 ></app-post-list-item>

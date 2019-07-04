@@ -32,4 +32,10 @@ export class PostsService {
     const url = `${environment.postsUrl}/${post.id}`;
     return this.http.put(url,post).toPromise();
   }
+
+  removePost(post: IPost): any {
+    const url = `${environment.postsUrl}/${post.id}`;
+    return this.http.delete(url).toPromise();
+  }
+
 }

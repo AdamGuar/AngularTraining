@@ -6,8 +6,8 @@
     There are no posts.
 </p>
 
-<app-post-add-form (addPost)="onAddPost($event)" appOnlyForAuthUser>
+<app-post-add-form (addPost)="onAddPost($event)" appOnlyForAuthUser >
     </app-post-add-form>
-    <app-post-list
+    <app-post-list (removePost)="onRemovePost($event)"
         [posts]='posts'
     ></app-post-list>
