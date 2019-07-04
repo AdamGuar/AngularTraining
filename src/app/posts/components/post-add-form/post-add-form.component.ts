@@ -37,25 +37,10 @@ export class PostAddFormComponent implements OnInit {
   });
 
   constructor(
-    private userService: UsersService,
-    private el: ElementRef,
-    private renderer: Renderer2
+    private userService: UsersService
   ) {}
 
   ngOnInit() {
-    this.userService.$user.subscribe({
-      next: (value) => {
-        const $el = this.el.nativeElement;
-        const isUserLogged = (value !== null) && value.status;
-        if(isUserLogged) {
-          this.renderer.removeClass($el, "hide");
-          return;
-        }
-        this.renderer.addClass($el, "hide");
-      },
-      error: (err) => {console.warn('Problem occured with user stream',err)},
-      complete: () => {console.warn('User stream closed')}
-    });
   }
 
   onSubmit() {

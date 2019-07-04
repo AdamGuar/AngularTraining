@@ -13,6 +13,7 @@ import { UserPostListComponent } from './components/user-post-list/user-post-lis
 import { UserMenuComponent } from './components/user-menu/user-menu.component';
 import { PostsModule } from '../posts/posts.module';
 import { UserRemovePageComponent } from './pages/user-remove-page/user-remove-page.component';
+import { OnlyForAuthUserDirective } from '../shared/directives/only-for-auth-user.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserRemovePageComponent } from './pages/user-remove-page/user-remove-pa
     UserDetailsComponent,
     UserPostListComponent,
     UserMenuComponent,
-    UserRemovePageComponent
+    UserRemovePageComponent,
+    OnlyForAuthUserDirective
   ],
   imports: [
     CommonModule,
